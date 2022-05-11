@@ -17,22 +17,10 @@ export default function InfoList() {
     });
   }
 
-  // const fetchData = async () => {
-  //   const response = db.collection('info');
-  //   const data = await response.get();
-  //   data.docs.forEach(item => {
-  //     setData([...myData, item.data()])
-  //   })
-  // }
-
   useEffect(() => {
     getInfo();
   }, [])
   
-  Object.entries(myData).forEach(x => {
-    console.log("mydate " + x.name)
-    console.log("mData "+ x.number)
-  })
   return (
     <div>
       {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Card, Button, Alert } from 'react-bootstrap'
 import {useAuth } from "../contexts/AuthContext"
 import { Link, useNavigate } from 'react-router-dom'
+import InfoList from './InfoList'
 
 export default function Control() {
   const { currentUser, logOut } = useAuth()
@@ -20,6 +21,7 @@ export default function Control() {
   }
   return (
     <>
+      <InfoList/>
     </>
     )
 }

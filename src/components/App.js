@@ -5,6 +5,7 @@ import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 import Control from "./Control";
 import MyNavbar from "./MyNavbar";
+import Profile from "./Profile";
 import { AuthProvider } from "./../contexts/AuthContext"
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                   <Route exact path="/" element={<Control/>}/>
                   <Route path="/signup" element={<SignUp/>}/>
                   <Route path="/login" element={<LogIn/>}/>
+                  <Route path="/profile" element={<Profile/>}/>
                 </Routes>
             </Router>
           </div>

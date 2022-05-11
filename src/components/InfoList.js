@@ -5,16 +5,28 @@ import { db } from '../firebase';
 export default function InfoList() {
   const [myData, setData] = useState([])
 
-  const fetchData = async () => {
-    const response = db.collection('info');
-    const data = await response.get();
-    data.docs.forEach(item => {
-      setData([...myData, item.data()])
-    })
+  const ref = db.collection("info")
+
+  function getInfo() {
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setData(items);
+    });
   }
 
+  // const fetchData = async () => {
+  //   const response = db.collection('info');
+  //   const data = await response.get();
+  //   data.docs.forEach(item => {
+  //     setData([...myData, item.data()])
+  //   })
+  // }
+
   useEffect(() => {
-    fetchData();
+    getInfo();
   }, [])
   
   Object.entries(myData).forEach(x => {
